@@ -81,6 +81,10 @@ $> git push origin develop:acceptance
 ```
 Circle triggers an acceptance deployment on successful acceptance branch build.
 
+<p align="center">
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/develop/images/Step%203.png" width="350"/>
+</p>
+
 
 **Step 4**.
 Refspec push acceptance branch to performance branch
@@ -92,6 +96,9 @@ $> git push origin acceptance:performance
 ```
 Circle triggers an performance deployment on successful performance branch build. Post successfull deploy we auto trigger a performance test.
 
+<p align="center">
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/develop/images/Step%204.png" width="350"/>
+</p>
 
 **Step 5**.
 We finally have a set of releasable items, lets cut a release branch.
@@ -117,6 +124,12 @@ Once the release is green in circle, refspec push the release branch to staging 
 ```
 $> git push origin release/x.xx.x:staging
 ```
+
+staging branch will deploy to staging environment via circle build
+
+<p align="center">
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%205.png" width="350"/>
+</p>
 
 **Step 6**. cut regression fix branch off of release branch
 ```sh
@@ -144,8 +157,18 @@ $> git push origin release/3.xx.0
 
 Once the release is green in circle, refspec push the release branch to staging branch
 
-**Step 7**. We follow a dual PR flow where release regression is put into release and develop.
-Once your fix is in the release, do an interactive rebase on your release fix branch then do a PR into develop.
+```
+$> git push origin release/x.xx.x:staging
+```
+
+staging branch will deploy to staging environment via circle build
+
+<p align="center">
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%206.7.png" width="350"/>
+</p>
+
+**Step 7**. We follow a dual PR flow where release/hotfix regression is put into release/hotfix and develop.
+Once your fix is in the release/hotfix, do an interactive rebase on your release fix branch then do a PR into develop.
 
 ```sh
 $> git pull origin develop
@@ -163,6 +186,9 @@ $> git checkout release/x.xx.x
 $> git pull
 $> git push origin release/x.xx.x:production
 ```
+<p align="center">
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%208.png" width="350"/>
+</p>
 
 **Step 9**.
 Tag the release in github
@@ -178,3 +204,31 @@ x.xx.x
 
 Description:
 Intranet link to releasenotes
+
+<p align="center">
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%209.png" width="350"/>
+</p>
+
+
+
+### Hotfixes
+Hotfixes are Cut from last released Tag. Check for last released Tag.
+
+```sh
+git fetch
+git tag
+git checkout x.xx.x
+```
+
+You'll be in a detached head state
+
+```sh
+git checkout -b release/x.xx.x
+git push origin release/x.xx.x
+```
+
+Follow steps 6 - 9 to finish out the Hotfix.
+
+<p align="center">
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/Hotfix.png" width="350"/>
+</p>
