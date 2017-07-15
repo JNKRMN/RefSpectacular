@@ -83,7 +83,6 @@ Circle triggers an acceptance deployment on successful acceptance branch build.
 
 <p align="center">
   <img src="https://github.com/JNKRMN/RefSpectacular/blob/develop/images/Step%203.png" width="350"/>
-  <img src="https://github.com/JNKRMN/RefSpectacular/blob/develop/images/Step%203.png_number_2_large_name" width="350"/>
 </p>
 
 
@@ -97,6 +96,9 @@ $> git push origin acceptance:performance
 ```
 Circle triggers an performance deployment on successful performance branch build. Post successfull deploy we auto trigger a performance test.
 
+<p align="center">
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/develop/images/Step%204.png" width="350"/>
+</p>
 
 **Step 5**.
 We finally have a set of releasable items, lets cut a release branch.
@@ -122,6 +124,9 @@ Once the release is green in circle, refspec push the release branch to staging 
 ```
 $> git push origin release/x.xx.x:staging
 ```
+<p align="center">
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%205.png" width="350"/>
+</p>
 
 **Step 6**. cut regression fix branch off of release branch
 ```sh
@@ -149,6 +154,11 @@ $> git push origin release/3.xx.0
 
 Once the release is green in circle, refspec push the release branch to staging branch
 
+
+<p align="center">
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%206.7.png" width="350"/>
+</p>
+
 **Step 7**. We follow a dual PR flow where release regression is put into release and develop.
 Once your fix is in the release, do an interactive rebase on your release fix branch then do a PR into develop.
 
@@ -168,6 +178,9 @@ $> git checkout release/x.xx.x
 $> git pull
 $> git push origin release/x.xx.x:production
 ```
+<p align="center">
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%208.png" width="350"/>
+</p>
 
 **Step 9**.
 Tag the release in github
@@ -183,3 +196,7 @@ x.xx.x
 
 Description:
 Intranet link to releasenotes
+
+<p align="center">
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%209.png" width="350"/>
+</p>
