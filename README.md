@@ -81,6 +81,10 @@ $> git push origin develop:acceptance
 ```
 Circle triggers an acceptance deployment on successful acceptance branch build.
 
+<p align="center">
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/develop/images/Step%203.png" width="350"/>
+  <img src="Updating Acceptance" width="350"/>
+</p>
 
 **Step 4**.
 Refspec push acceptance branch to performance branch
