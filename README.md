@@ -232,3 +232,16 @@ Follow steps 6 - 9 to finish out the Hotfix.
 <p align="center">
   <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/Hotfix.png" width="350"/>
 </p>
+
+
+
+### Peer Review
+We put robust peer review in place.
+
+1. Build in CI Tool (CircleCI).
+2. Two code reviewers.
+3. Unit tests.
+4. Code coverage tools.
+5. Also branch merging in must be up to date with trunk.
+
+We have many stacks/apps and provisioning/deployment tools. Finding a little sanity in the way with manage our code was key. Watching the shas progress in the RefSpec flow is something to see. Your Network graphs will clean up, and it will be so easy to deploy and manage environments. Also the majority of the manual steps can be automated. Once you get happy with your flow you can hook acceptance deploys to the develop merge commits and much much more.
