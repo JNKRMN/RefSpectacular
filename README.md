@@ -124,6 +124,9 @@ Once the release is green in circle, refspec push the release branch to staging 
 ```
 $> git push origin release/x.xx.x:staging
 ```
+
+staging branch will deploy to staging environment via circle build
+
 <p align="center">
   <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%205.png" width="350"/>
 </p>
@@ -154,13 +157,18 @@ $> git push origin release/3.xx.0
 
 Once the release is green in circle, refspec push the release branch to staging branch
 
+```
+$> git push origin release/x.xx.x:staging
+```
+
+staging branch will deploy to staging environment via circle build
 
 <p align="center">
   <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%206.7.png" width="350"/>
 </p>
 
-**Step 7**. We follow a dual PR flow where release regression is put into release and develop.
-Once your fix is in the release, do an interactive rebase on your release fix branch then do a PR into develop.
+**Step 7**. We follow a dual PR flow where release/hotfix regression is put into release/hotfix and develop.
+Once your fix is in the release/hotfix, do an interactive rebase on your release fix branch then do a PR into develop.
 
 ```sh
 $> git pull origin develop
@@ -199,4 +207,28 @@ Intranet link to releasenotes
 
 <p align="center">
   <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%209.png" width="350"/>
+</p>
+
+
+
+### Hotfixes
+Hotfixes are Cut from last released Tag. Check for last released Tag.
+
+```sh
+git fetch
+git tag
+git checkout x.xx.x
+```
+
+You'll be in a detached head state
+
+```sh
+git checkout -b release/x.xx.x
+git push origin release/x.xx.x
+```
+
+Follow steps 6 - 9 to finish out the Hotfix.
+
+<p align="center">
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/Hotfix.png" width="350"/>
 </p>
