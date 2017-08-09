@@ -244,4 +244,4 @@ We put robust peer review in place.
 4. Code coverage tools.
 5. Also branch merging in must be up to date with trunk.
 
-We have many stacks/apps and provisioning/deployment tools. Finding a little sanity in the way we manage our code is key. Watching shas progress in the RefSpec flow, is something to see. Your Network graphs will clean up, it will be easy to deploy and manage environments. The majority of the manual steps can be automated. Once you get happy with your flow you can hook acceptance deploys to the develop merge commits and much much more.
+We have many stacks/apps and provisioning/deployment tools. Finding a little sanity in the way we manage our code is key. Watching shas progress in the RefSpec flow, is something to see. Your Network graphs will clean up, it will be easy to deploy and manage environments. The majority of the manual steps can be automated.
