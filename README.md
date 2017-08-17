@@ -17,7 +17,7 @@ Main points of refspec push flow.
 |--------|---------|
 | develop | The main trunk and feature branch of our codebase. HEAD of this branch is always deployed to the develop environment. This is done with circle ci. |
 | acceptance | This branch controls what QA is currently working on. It should be treated, not so much as it's own branch, but as a reference to the commit in develop (trunk) that is being tested |
-| staging | This branch is used to pre-deploy the release to a pre-production environment. This is used for regression testing, automation runs, hot fixes and a chance to test the deploy itself. |
+| staging | This branch is used to pre-deploy the release to a pre-production (staging) environment. This is used for regression testing, automation runs, hot fixes and a chance to test the deploy itself. |
 | performance | This branch is used to test performance in a performance environment, typically in alignment with acceptance but can point to anything. |
 | production | The code that is currently deployed to Production. |
 
