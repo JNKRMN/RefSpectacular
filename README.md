@@ -97,7 +97,7 @@ $> git push origin acceptance:performance
 Circle triggers an performance deployment on successful performance branch build. Post successfull deploy we auto trigger a performance test.
 
 <p align="center">
-  <img src="RefSpectacular/images/Step 3.png" width="350"/>
+  <img src="RefSpectacular/images/Step 4.png" width="350"/>
 </p>
 
 **Step 5**.
