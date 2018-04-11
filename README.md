@@ -97,7 +97,7 @@ $> git push origin acceptance:performance
 Circle triggers an performance deployment on successful performance branch build. Post successfull deploy we auto trigger a performance test.
 
 <p align="center">
-  <img src="RefSpectacular/images/Step 4.png" width="350"/>
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/develop/images/Step%204.png" width="350"/>
 </p>
 
 **Step 5**.
@@ -128,7 +128,7 @@ $> git push origin release/x.xx.x:staging
 staging branch will deploy to staging environment via circle build
 
 <p align="center">
-  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%205.png" width="350"/>
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/develop/images/step%205.png" width="350"/>
 </p>
 
 **Step 6**. cut regression fix branch off of release branch
@@ -164,7 +164,7 @@ $> git push origin release/x.xx.x:staging
 staging branch will deploy to staging environment via circle build
 
 <p align="center">
-  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%206.7.png" width="350"/>
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/develop/images/step%206.7.png" width="350"/>
 </p>
 
 **Step 7**. We follow a dual PR flow where release/hotfix regression is put into release/hotfix and develop.
@@ -187,7 +187,7 @@ $> git pull
 $> git push origin release/x.xx.x:production
 ```
 <p align="center">
-  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%208.png" width="350"/>
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/develop/images/step%208.png" width="350"/>
 </p>
 
 **Step 9**.
@@ -206,7 +206,7 @@ Description:
 Intranet link to releasenotes
 
 <p align="center">
-  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/step%209.png" width="350"/>
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/develop/images/step%209.png" width="350"/>
 </p>
 
 
@@ -230,7 +230,7 @@ git push origin release/x.xx.x
 Follow steps 6 - 9 to finish out the Hotfix.
 
 <p align="center">
-  <img src="https://github.com/JNKRMN/RefSpectacular/blob/Chore/updating_documentation/images/Hotfix.png" width="350"/>
+  <img src="https://github.com/JNKRMN/RefSpectacular/blob/develop/images/Hotfix.png" width="350"/>
 </p>
 
 
