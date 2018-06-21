@@ -7,8 +7,7 @@ Main points of refspec push flow.
 2. The Trunk MUST always be in working order.
 3. Trunk (origin/develop) is the only branch that we care about history, its the only branch with infinite lifespan. This means all other branches become labels.
 4. We tag ONLY signed off releases (origin/release/x.xx.x).
-5. We cut hotfixes from last released Tag.
-6. All release fixes are cut from release, they are PR'd into release and rebased off develop, and PR'd back into develop. This ensures Code is never missed and no need for tag merge into trunk!
+5. All release fixes are cut from release, they are PR'd into release and rebased off develop, and PR'd back into develop. This ensures Code is never missed and no need for tag merge into trunk!
 
 
 ### The Main branches
