@@ -235,12 +235,13 @@ Follow steps 6 - 9 to finish out the Hotfix.
 ### Rollback
 Rollbacks in Refspec are achieved by refspecing last successfully released tag to production branch.  
 Check in github to see what the last released tag is. That will be your last good commit before your latest push that broke things. Verify that the last released tag matches the commit on production branch just before you pushed your broken code.
-```git checkout production branch; git fetch; git pull;```
-Reset back to the SHA, its the one you researched, the last good commit
+
+1. ```git checkout production branch; git fetch; git pull;```
+2. Reset back to the SHA, its the one you researched, the last good commit.
 ```git reset --hard ${SHA}```
-Now ensure your local copy is now showing the SHA you want to be in production, IE the last good commit
+3. Now ensure your local copy is now showing the SHA you want to be in production, IE the last good commit
 ```git show-ref production```
-Now push it up, the reason you have to force is its not a fast forward, in refspec we dont care about branch history past develop branch, so we dont mind overwriting production branch history with the force push.
+4. Now push it up, the reason you have to force is its not a fast forward, in refspec we dont care about branch history past develop branch, so we dont mind overwriting production branch history with the force push.
 ```git push origin production -f```
 
 This will push the last good code to Production branch and will deploy it Production Environment
