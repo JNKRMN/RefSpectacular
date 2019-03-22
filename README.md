@@ -3,19 +3,20 @@ Whats the main goal of Source Control, to protect and share your code, to retain
 
 Main points of refspec push flow.
 
-1. Controlled access to the baseline, we put robust Peer Review process in for merge into Trunk. This ensures Code going into pipeline is stable and ready to go to production. Potentially every Trunk merge could become next release.
-2. The Trunk MUST always be in working order.
-3. Trunk (origin/develop) is the only branch that we care about history, its the only branch with infinite lifespan. This means all other branches become labels.
-4. We tag ONLY signed off releases (origin/release/x.xx.x).
-5. All release fixes are cut from release, they are PR'd into release and rebased off develop, and PR'd back into develop. This ensures Code is never missed and no need for tag merge into trunk!
+1. To eliminate managing a million and one merges. What do I mean by that, in typical git flow, you cut a release off of trunk, you test you merge it into a master or production branch. You might have had a release fix so now you also need to merge master into trunk again to pick up the release fix. Thats a full time job for one or many people depending on how many repos you have. In the refspec world we only care about the history on trunk (develop) branch. All up stream branches are just tags or references.
+2. This branching method is ment to mate with a containerized infrastructure. If you think about the container world we build and certify an image and then just pass that golden image/images along our environments. Using git flow in container world is not recommeneded because you could certify a image in acceptance but as soon as the release branch is cut and a new thing is added to that branch it has changed the state, causing re-certification. We use this branching method to pass the golen image/images up through our environments.
+3. The Trunk MUST always be in working order.
+4. Trunk (origin/develop) is the only branch that we care about history, its the only branch with infinite lifespan. This means all other branches become labels or references.
+5. Another reason we keep Trunk in such good order is we consider every commit into trunk the next potential release.  
+6. We tag ONLY signed off releases, we currently have tooling that is generating random release names. We have moved past the need for semantic versioning, we release too often for the relevance of a version to matter. Its only use to to anchor commits to release notes.
+7. In the rare case you do need a hotfix and cant release the next trunk commits, All release fixes are cut from release, they are PR'd into release and rebased off develop, and PR'd back into develop. This ensures Code is never missed and no need for tag merge into trunk!
 
 
 ### The Main branches
 
 | branch | purpose |
 |--------|---------|
-| develop | The main trunk and feature branch of our codebase. HEAD of this branch is always deployed to the develop environment. This is done with circle ci. |
-| acceptance | This branch controls what QA is currently working on. It should be treated, not so much as it's own branch, but as a reference to the commit in develop (trunk) that is being tested |
+| develop | The main trunk of our codebase. HEAD of this branch is always deployed to the acceptance environment. This is done with circle ci. (can be any ci tool, I just like circle) |
 | staging | This branch is used to pre-deploy the release to a pre-production (staging) environment. This is used for regression testing, automation runs, hot fixes and a chance to test the deploy itself. |
 | performance | This branch is used to test performance in a performance environment, typically in alignment with acceptance but can point to anything. |
 | production | The code that is currently deployed to Production. |
@@ -25,9 +26,9 @@ Main points of refspec push flow.
 
 | branch | purpose |
 |--------|---------|
-| feature | These branches are used to develop new code, this could be a feature/bug/chore/task whatever work type your project supports. These branches are merged into develop via strict peer review process. |
-| release | These branches are used to release software. These are typically a sprints worth of work but can be many sprints depending on your project. We follow a major.minor.patch flow. The release version should reflect what size of release it is. Weekly releases are merely minor version bumps. |
-| hotfix | These branches are used to release burning issues, typically stemming from the last release. |
+| feature/chore/bug/so on | These branches are used to develop new code, this could be a feature/bug/chore/task whatever work type your project supports. These branches are merged into develop via strict peer review process. |
+| release | These branches are used to release software. We use build tooling to auto cut and auto generate the release and release notes. These are typically only a few commits, we try to release often, at least once a day but can be many times in one day.
+| hotfix | These branches are used to release burning issues, typically stemming from the last release. But are rare events in todays world, we typically just get commits into head and do a normal release since we keep so close to head. |
 
 ### The Magic, what is a refspec push
 ```sh
