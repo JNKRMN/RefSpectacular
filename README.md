@@ -258,3 +258,25 @@ We put robust peer review in place.
 5. Also branch merging in must be up to date with trunk.
 
 We have many stacks/apps and provisioning/deployment tools. Finding a little sanity in the way we manage our code is key. Watching shas progress in the RefSpec flow, is something to see. Your Network graphs will clean up, it will be easy to deploy and manage environments. The majority of the manual steps can be automated.
+
+
+
+### 2019 update
+
+
+We have slimmed down our branches and environments to just use
+Develop branch (trunk) -> deploys to Acceptance environment.
+Staging branch -> deploys to Staging environment.
+Production branch -> deploys to Production branch.
+
+
+Weve reorg'd testing and where its done.
+pre merge into trunk, QA pulls image locally to functionally test
+QA functional sign off causes auto merge into trunk (github actions hook)
+Merge into trunk auto deploys into acceptance env, post deploy we auto smoke test
+Once a set of tickets build up in acceptance environment we push a trunk sha up to Staging branch. (weve automated this with custom release tooling)
+Once that image hit Staging environment we auto regression test + QA manual vaildation of items ment to be in release.
+If its deemed performant we Performance test in Staging env.
+Once QA signs off we push image to Production branch.
+Once image hits Production environemnt, all changes are live. (our release tooling tags the sha off of trunk branch. Release tooling compares shas and notes what changes were made in github release tag. We send release notifications via email and sent to slack channels)
+
