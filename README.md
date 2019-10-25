@@ -265,18 +265,19 @@ We have many stacks/apps and provisioning/deployment tools. Finding a little san
 
 
 We have slimmed down our branches and environments to just use
-Develop branch (trunk) -> deploys to Acceptance environment.
-Staging branch -> deploys to Staging environment.
-Production branch -> deploys to Production branch.
+1. Develop branch (trunk) -> deploys to Acceptance environment.
+2. Staging branch -> deploys to Staging environment.
+3. Production branch -> deploys to Production branch.
 
 
 Weve reorg'd testing and where its done.
-pre merge into trunk, QA pulls image locally to functionally test
-QA functional sign off causes auto merge into trunk (github actions hook)
-Merge into trunk auto deploys into acceptance env, post deploy we auto smoke test
-Once a set of tickets build up in acceptance environment we push a trunk sha up to Staging branch. (weve automated this with custom release tooling)
-Once that image hit Staging environment we auto regression test + QA manual vaildation of items ment to be in release.
-If its deemed performant we Performance test in Staging env.
-Once QA signs off we push image to Production branch.
-Once image hits Production environemnt, all changes are live. (our release tooling tags the sha off of trunk branch. Release tooling compares shas and notes what changes were made in github release tag. We send release notifications via email and sent to slack channels)
+1. pre merge into trunk, QA pulls image locally to functionally test
+2. QA functional sign off causes auto merge into trunk (github actions hook)
+3. Merge into trunk auto deploys into acceptance env, post deploy we auto smoke test
+4. Once a set of tickets build up in acceptance environment we push a trunk sha up to Staging branch. (weve automated this 5. with custom release tooling)
+5. Once that image hit Staging environment we auto regression test + QA manual vaildation of items ment to be in release.
+6. If its deemed performant we Performance test in Staging env.
+7. Once QA signs off we push image to Production branch.
+8. Once image hits Production environemnt, all changes are live. (our release tooling tags the sha off of trunk branch. 
+9. Release tooling compares shas and notes what changes were made in github release tag. We send release notifications via email and sent to slack channels)
 
